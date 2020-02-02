@@ -24,6 +24,7 @@
         <activity android:name=".activity.ViewKategoriActivity"/>
         <activity android:name=".activity.InputRegestrasiActivity"/>
         <activity android:name=".activity.ViewDetailLaporanActivity"/>
+        <activity android:name=".activity.PenilaianActivity"/>
     </application>
 
 </manifest>

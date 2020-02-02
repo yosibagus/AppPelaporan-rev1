@@ -71,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#fff"
-                    android:text="Chose IMG"/>
+                    android:text="Masukkan Gambar"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -102,68 +102,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:layout_below="@id/layoutName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="@dimen/cardview_default_elevation"
-            app:cardCornerRadius="0dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp">
-
-                <TextView
-                    android:text="Detail Pelapor"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/et_ktp_lap"
-                        android:hint="KTP"
-                        android:fontFamily="sans-serif-light"
-                        android:inputType="textPersonName|textCapWords"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/et_nm_lap"
-                        android:hint="Nama"
-                        android:fontFamily="sans-serif-light"
-                        android:inputType="textPersonName|textCapWords"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/et_notelp_lap"
-                        android:hint="Notelp"
-                        android:fontFamily="sans-serif-light"
-                        android:inputType="textPersonName|textCapWords"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 

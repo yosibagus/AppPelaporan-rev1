@@ -7,6 +7,7 @@ public class ModelKategori {
     @SerializedName("nm_kat") private String namaKategori;
     @SerializedName("img_kat") private String imgKat;
     @SerializedName("error") private String errorMessage;
+    @SerializedName("rating") private String rating;
 
     public int getKd_kat() {
         return kd_kat;
@@ -22,5 +23,9 @@ public class ModelKategori {
 
     public String getErrorMessage() {
         return errorMessage;
+    }
+
+    public String getRating() {
+        return rating;
     }
 }

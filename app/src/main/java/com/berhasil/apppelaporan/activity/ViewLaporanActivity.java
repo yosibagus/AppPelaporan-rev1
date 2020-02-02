@@ -117,14 +117,22 @@ public class ViewLaporanActivity extends AppCompatActivity implements SearchView
             @Override
             public void onKategoriClick(int PelaporanId, int index) {
                 ModelPelaporan getPelaporan = modelPelaporanList.get(index);
-                Intent in = new Intent(that, ViewDetailLaporanActivity.class);
-                in.putExtra(Constant.IMG_DETAIL, getPelaporan.getFotoLap());
-                in.putExtra(Constant.NMKATEGORI_DETAIL, getPelaporan.getKd_kat());
-                in.putExtra(Constant.KETERANGANLAP_DETAIL, getPelaporan.getKetLap());
-                in.putExtra(Constant.TGL_PELAPORAN_DETAIL, getPelaporan.getTgl_lap());
-                in.putExtra(Constant.STATUS_DETAIL, getPelaporan.getStatus());
-                in.putExtra(Constant.NOTELP_DETAIL, getPelaporan.getNoTlpLap());
-                that.startActivity(in);
+                if (getPelaporan.getStatus().equalsIgnoreCase("Selesai")) {
+                    Intent intent = new Intent(that, PenilaianActivity.class);
+                    intent.putExtra("laporanId", String.valueOf(getPelaporan.getKd_lap()));
+                    intent.putExtra(Constant.IMG_DETAIL, getPelaporan.getFotoLap());
+                    intent.putExtra("kategoriId", getPelaporan.getKategoriId());
+                    that.startActivity(intent);
+                } else {
+                    Intent in = new Intent(that, ViewDetailLaporanActivity.class);
+                    in.putExtra(Constant.IMG_DETAIL, getPelaporan.getFotoLap());
+                    in.putExtra(Constant.NMKATEGORI_DETAIL, getPelaporan.getKd_kat());
+                    in.putExtra(Constant.KETERANGANLAP_DETAIL, getPelaporan.getKetLap());
+                    in.putExtra(Constant.TGL_PELAPORAN_DETAIL, getPelaporan.getTgl_lap());
+                    in.putExtra(Constant.STATUS_DETAIL, getPelaporan.getStatus());
+                    in.putExtra(Constant.NOTELP_DETAIL, getPelaporan.getNoTlpLap());
+                    that.startActivity(in);
+                }
             }
         });
 

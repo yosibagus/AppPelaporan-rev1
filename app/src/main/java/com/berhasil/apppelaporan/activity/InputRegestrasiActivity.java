@@ -117,37 +117,47 @@ public class InputRegestrasiActivity extends AppCompatActivity {
     }
 
     private void addRegestrasiUser() {
-        loading = ProgressDialog.show(mContext, null, "Sedang Menyimpan Data", true, false);
-        String ktp = etNoKtp.getText().toString();
-        String img = imgToString();
-        String nama = etNamaLengkap.getText().toString();
-        String noTelp = etNoTelp.getText().toString();
-        String password = etPassword.getText().toString();
+        String ktp = "";
+        String noTelp = "";
+        if (etNoKtp.getText().toString().length() < 16) {
+            Toast.makeText(mContext, "Nomor KTP tidak sesuai", Toast.LENGTH_SHORT).show();
+        }
+        else if(etNoTelp.getText().toString().length() < 10) {
+            Toast.makeText(mContext, "No.Hp tidak valid", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            loading = ProgressDialog.show(mContext, null, "Sedang Menyimpan Data", true, false);
+            ktp = etNoKtp.getText().toString();
+            String img = imgToString();
+            String nama = etNamaLengkap.getText().toString();
+            noTelp = etNoTelp.getText().toString();
+            String password = etPassword.getText().toString();
 
-        Call<ResponseBody> rest = mApiService.addRegestrasi(ktp, password, img, nama, noTelp);
-        rest.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    loading.dismiss();
-                    Toast.makeText(mContext, "Berhasil Menyimpan Data", Toast.LENGTH_SHORT).show();
-                    imgView.setVisibility(View.GONE);
-                    startActivity(new Intent(mContext, LoginActivity.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                    finish();
+            Call<ResponseBody> rest = mApiService.addRegestrasi(ktp, password, img, nama, noTelp);
+            rest.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        loading.dismiss();
+                        Toast.makeText(mContext, "Berhasil Menyimpan Data", Toast.LENGTH_SHORT).show();
+                        imgView.setVisibility(View.GONE);
+                        startActivity(new Intent(mContext, LoginActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+                    }
+                    else {
+                        loading.dismiss();
+                        Toast.makeText(mContext, "gagal menyimpan data", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    loading.dismiss();
-                    Toast.makeText(mContext, "gagal menyimpan data", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                loading.dismiss();
-                Toast.makeText(mContext, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    loading.dismiss();
+                    Toast.makeText(mContext, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override

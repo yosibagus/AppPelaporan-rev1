@@ -51,12 +51,7 @@ public class InputLaporanActivity extends AppCompatActivity {
     EditText etLokasi;
     @BindView(R.id.et_ket_lap)
     EditText etketeranganLaporan;
-    @BindView(R.id.et_ktp_lap)
-    EditText etKtp;
-    @BindView(R.id.et_nm_lap)
-    EditText namaUser;
-    @BindView(R.id.et_notelp_lap)
-    EditText nomerTelp;
+
 
     private static final int IMG_REQUEST = 777;
     private Bitmap bitmap;
@@ -81,12 +76,6 @@ public class InputLaporanActivity extends AppCompatActivity {
 
         //set data textview
         namaKategori.setText(tmpNamaKategori);
-        etKtp.setText(sharePrefManager.getSpNoKtp());
-        etKtp.setEnabled(false);
-        namaUser.setText(sharePrefManager.getSpNamaUser());
-        namaUser.setEnabled(false);
-        nomerTelp.setText(sharePrefManager.getSpNotelpUser());
-        nomerTelp.setEnabled(false);
         etLokasi.clearFocus();
         etketeranganLaporan.clearFocus();
 
@@ -111,9 +100,7 @@ public class InputLaporanActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.save :
-                if (etKtp.getText().toString().isEmpty()) {
-                    etKtp.setError("KTP tidak boleh kosong");
-                } else if (etketeranganLaporan.getText().toString().isEmpty()) {
+                if (etketeranganLaporan.getText().toString().isEmpty()) {
                     etketeranganLaporan.setError("Keterangan Tidak boleh kosong");
                 } else if (etLokasi.getText().toString().isEmpty()) {
                     etLokasi.setError("Lokasi tidak boleh kosong");

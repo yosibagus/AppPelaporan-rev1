@@ -23,9 +23,10 @@
             android:layout_height="130dp"
             />
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="10dp">
 
             <TextView
@@ -37,7 +38,14 @@
                 android:textSize="15sp"
                 android:textColor="#2d2d2d"/>
 
-        </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/tmpRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="?android:attr/ratingBarStyleSmall"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

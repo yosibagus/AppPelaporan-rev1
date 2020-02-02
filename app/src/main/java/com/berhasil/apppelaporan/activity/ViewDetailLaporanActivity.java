@@ -31,12 +31,7 @@ public class ViewDetailLaporanActivity extends AppCompatActivity {
     TextView tanggalDetail;
     @BindView(R.id.statusPelaporan)
     TextView statusPelaporan;
-    @BindView(R.id.noKtpDetial)
-    TextView noKtpDetial;
-    @BindView(R.id.namaUserDetial)
-    TextView namaUserDetail;
-    @BindView(R.id.noTelpDetial)
-    TextView noTelpDetail;
+
 
     SharePrefManager sharePrefManager;
 
@@ -59,9 +54,7 @@ public class ViewDetailLaporanActivity extends AppCompatActivity {
         keteranganDetail.setText(in.getStringExtra(Constant.KETERANGANLAP_DETAIL));
         tanggalDetail.setText(in.getStringExtra(Constant.TGL_PELAPORAN_DETAIL));
         statusPelaporan.setText(in.getStringExtra(Constant.STATUS_DETAIL));
-        noKtpDetial.setText(sharePrefManager.getSpNoKtp());
-        namaUserDetail.setText(sharePrefManager.getSpNamaUser());
-        noTelpDetail.setText(in.getStringExtra(Constant.NOTELP_DETAIL));
+
     }
 
     @Override

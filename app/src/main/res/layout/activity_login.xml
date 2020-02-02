@@ -46,7 +46,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="NOMER KTP"
+                    android:hint="NOMOR KTP"
                     android:textColorHint="#636363"
                     app:boxStrokeColor="#636363"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">

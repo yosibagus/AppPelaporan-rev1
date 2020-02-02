@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class AdapterKategori extends RecyclerView.Adapter<AdapterKategori.Katego
     public void onBindViewHolder(@NonNull KategoriViewHolder holder, int position) {
         final ModelKategori getKategori = modelKategoriList.get(position);
         holder.namaKategori.setText(getKategori.getNamaKategori());
+        holder.ratingBar.setRating(Float.parseFloat(getKategori.getRating()));
         Glide.with(mContext)
                 .load(IMG_KAT_URL + getKategori.getImgKat())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -77,6 +79,8 @@ public class AdapterKategori extends RecyclerView.Adapter<AdapterKategori.Katego
         TextView namaKategori;
         @BindView(R.id.imgKategori)
         ImageView imgKategori;
+        @BindView(R.id.tmpRating)
+        RatingBar ratingBar;
         public KategoriViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

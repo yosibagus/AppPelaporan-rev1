@@ -31,7 +31,10 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("loginUser.php")
-    Call<ResponseBody> loginRequest(@Field("noktp") String noKtp, @Field("password") String password);
+    Call<ResponseBody> loginRequest(
+            @Field("noktp") String noKtp,
+            @Field("password") String password
+    );
 
     @FormUrlEncoded
     @POST("addRegestrasiUser.php")
@@ -45,6 +48,19 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("search.php")
-    Call<ResponsePelaporan> search(@Field("ktp") String ktp, @Field("search") String searching);
+    Call<ResponsePelaporan> search(
+            @Field("ktp") String ktp,
+            @Field("search") String searching
+    );
+
+    @FormUrlEncoded
+    @POST("updateKategori.php")
+    Call<ResponseBody> addRating(
+            @Field("rating") float rating,
+            @Field("kritiksaran") String kritikSaran,
+            @Field("kategoriId") String kategoriId,
+            @Field("ktp") String noKtp,
+            @Field("laporanId") int laporanId
+    );
 
 }

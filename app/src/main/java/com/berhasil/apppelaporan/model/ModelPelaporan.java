@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class ModelPelaporan {
     @SerializedName("kd_lap") private int kd_lap;
     @SerializedName("nm_kat") private String kd_kat;
+    @SerializedName("kd_kat") private String kategoriId;
     @SerializedName("foto_lap") private String fotoLap;
     @SerializedName("lokasi_lap") private String lokasi;
     @SerializedName("ket_lap") private String ketLap;
@@ -14,6 +15,10 @@ public class ModelPelaporan {
     @SerializedName("tgl_lap") private String tgl_lap;
     @SerializedName("status_lap") private String status;
     @SerializedName("error") private String errorMSG;
+
+    public String getKategoriId() {
+        return kategoriId;
+    }
 
     public String getErrorMSG() {
         return errorMSG;
